@@ -1,3 +1,4 @@
+import { PokeApiService } from './../../service/poke-api.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,7 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./poke-list.component.scss'],
 })
 export class PokeListComponent implements OnInit {
-  constructor() {}
+  public getAllPokemons: any;
 
-  ngOnInit(): void {}
+  constructor(private PokeApiService: PokeApiService) {}
+
+  ngOnInit(): void {
+    this.PokeApiService.listAllPokemons.subscribe((res) => {
+      this.getAllPokemons = res.results;
+
+      this.getAllPokemons.map((pokemon: any) => {
+        console.log(pokemon);
+      });
+    });
+  }
 }

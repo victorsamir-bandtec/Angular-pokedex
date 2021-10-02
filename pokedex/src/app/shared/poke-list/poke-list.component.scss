@@ -1,10 +1,8 @@
 @import "../../../config-scss/rem-calc.scss";
 @import "../../../config-scss/variables.scss";
 :host {
-  section {
-    @include display-flex;
-    width: 105%;
-  }
+  @include display-flex;
+  width: 105%;
 
   .pokemon {
     @include display-flex;
@@ -22,7 +20,7 @@
     background: var(--white);
 
     &:hover {
-      transform: scale(1.02);
+      transform: scale(1.01);
       box-shadow: 1px 0 25px rgba(0, 0, 0, 0.7);
     }
   }
@@ -34,6 +32,8 @@
       font-weight: 700;
       font-size: rem(26);
       font-style: italic;
+
+      text-transform: capitalize;
 
       color: var(--primary-color);
     }
@@ -70,5 +70,9 @@
 
     background: url("/assets/Bolinhas.svg");
     background-size: cover;
+
+    img {
+      width: rem(75);
+    }
   }
 }
