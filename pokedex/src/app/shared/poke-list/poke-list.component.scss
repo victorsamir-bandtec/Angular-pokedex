@@ -1,0 +1,74 @@
+@import "../../../config-scss/rem-calc.scss";
+@import "../../../config-scss/variables.scss";
+:host {
+  section {
+    @include display-flex;
+    width: 105%;
+  }
+
+  .pokemon {
+    @include display-flex;
+    width: 45%;
+    height: rem(120);
+    display: flex;
+    position: relative;
+
+    padding: rem(22) rem(12);
+    margin-bottom: rem(20);
+
+    border-radius: rem(10);
+    transition: all 150ms ease-in-out;
+
+    background: var(--white);
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 1px 0 25px rgba(0, 0, 0, 0.7);
+    }
+  }
+
+  .status {
+    h2 {
+      margin-bottom: rem(15);
+
+      font-weight: 700;
+      font-size: rem(26);
+      font-style: italic;
+
+      color: var(--primary-color);
+    }
+
+    ul {
+      @include display-flex(column);
+      align-items: flex-start;
+
+      li {
+        @include display-flex(row, center);
+        width: rem(90);
+
+        padding: rem(5) 0;
+        margin: rem(3) 0;
+
+        font-size: rem(14);
+        border-radius: rem(40);
+
+        color: #0008;
+        background: #0001;
+      }
+    }
+  }
+
+  .image {
+    @include display-flex(row, center);
+    position: absolute;
+
+    width: rem(120);
+    height: rem(120);
+
+    right: rem(20);
+    bottom: rem(20);
+
+    background: url("/assets/Bolinhas.svg");
+    background-size: cover;
+  }
+}

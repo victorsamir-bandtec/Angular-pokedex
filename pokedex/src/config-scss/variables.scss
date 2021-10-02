@@ -1,0 +1,14 @@
+:root {
+  --white: #ffff;
+
+  --primary-color: #262835;
+  --secundary-color: #ff5473;
+}
+
+@mixin display-flex($direction: row, $justify: space-between) {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: center;
+}
