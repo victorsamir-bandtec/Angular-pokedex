@@ -6,7 +6,6 @@
       [routerLink]="['details', pokemon.status.id]"
       class="pokemon"
       *ngIf="pokemon.status"
-      (click)="log()"
     >
       <div class="status">
         <h2>{{ pokemon.name }}</h2>
@@ -25,3 +24,19 @@
     </a>
   </ng-template>
 </section>
+
+<footer>
+  <section>
+    <button (click)="previousPage()" *ngIf="previousButton">
+      <img src="assets/icons/previous.png" alt="previous-page" />
+    </button>
+
+    <button (click)="previousPage()" disabled *ngIf="!previousButton">
+      <img src="assets/icons/previous.png" alt="previous-page" />
+    </button>
+
+    <button (click)="nextPage()">
+      <img src="assets/icons/next.png" alt="next-page" />
+    </button>
+  </section>
+</footer>

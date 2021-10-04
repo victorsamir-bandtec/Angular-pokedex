@@ -78,4 +78,31 @@
       width: rem(75);
     }
   }
+
+  footer {
+    section {
+      @include display-flex(row, center);
+    }
+  }
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: rem(10);
+    margin: 0 rem(5);
+
+    border-radius: rem(5);
+
+    background: var(--white);
+    img {
+      width: rem(25);
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
 }

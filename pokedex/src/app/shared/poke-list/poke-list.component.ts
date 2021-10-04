@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokeListComponent implements OnInit {
   private setAllPokemons: any;
+
+  public previousButton: boolean = false;
   public getAllPokemons: any;
 
   constructor(private PokeApiService: PokeApiService) {}
@@ -27,8 +29,25 @@ export class PokeListComponent implements OnInit {
     this.getAllPokemons = filter;
   }
 
-  public log() {
-    // this.PokeApiService.nextPage();
-    console.log('log');
+  public nextPage() {
+    this.PokeApiService.url = this.PokeApiService.nextUrl;
+    this.previousButton = true;
+    this.ngOnInit();
+  }
+
+  public previousPage() {
+    const previous: string = this.PokeApiService.previousUrl;
+
+    this.PokeApiService.url = previous;
+    this.ngOnInit();
+
+    if (
+      previous === null ||
+      previous === 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=10'
+    ) {
+      this.previousButton = false;
+      return;
+    }
+    this.previousButton = true;
   }
 }

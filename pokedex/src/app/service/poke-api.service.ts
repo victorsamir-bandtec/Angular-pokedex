@@ -1,3 +1,4 @@
+import { PokeListComponent } from './../shared/poke-list/poke-list.component';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -8,7 +9,9 @@ import { map, tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class PokeApiService {
-  private url: string = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=10';
+  public url: string = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=10';
+  public nextUrl: string = '';
+  public previousUrl: string = '';
 
   constructor(private http: HttpClient) {}
 
@@ -16,6 +19,9 @@ export class PokeApiService {
     return this.http.get<any>(this.url).pipe(
       tap((res) => res),
       tap((res) => {
+        this.nextUrl = res.next;
+        this.previousUrl = res.previous;
+
         res.results.map((resPokemons: any) => {
           this.apiGetPokemons(resPokemons.url).subscribe(
             (res) => (resPokemons.status = res)
@@ -27,9 +33,5 @@ export class PokeApiService {
 
   public apiGetPokemons(url: string): Observable<any> {
     return this.http.get<any>(url).pipe(map((res) => res));
-  }
-
-  public nextPage(value: string) {
-    return console.log('samir');
   }
 }
