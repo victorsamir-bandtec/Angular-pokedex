@@ -142,4 +142,9 @@ ul,
 a,
 li {
   text-decoration: none;
+  color: var(--primary-color);
+}
+
+button {
+  cursor: pointer;
 }

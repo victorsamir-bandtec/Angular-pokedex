@@ -11,3 +11,11 @@ main {
   margin: 0 auto;
   box-sizing: border-box;
 }
+
+footer {
+  @include display-flex(row, center);
+  width: 100%;
+
+  margin-top: rem(50);
+  margin-bottom: rem(20);
+}

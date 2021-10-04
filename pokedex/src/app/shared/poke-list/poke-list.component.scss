@@ -1,8 +1,11 @@
 @import "../../../config-scss/rem-calc.scss";
 @import "../../../config-scss/variables.scss";
+
 :host {
-  @include display-flex;
-  width: 105%;
+  section {
+    @include display-flex;
+    width: 105%;
+  }
 
   .pokemon {
     @include display-flex;
