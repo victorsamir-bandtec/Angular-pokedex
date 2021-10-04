@@ -1,0 +1,139 @@
+@import "../../../config-scss/rem-calc.scss";
+@import "../../../config-scss/variables.scss";
+
+:host {
+  main {
+    margin-top: rem-calc(40);
+  }
+
+  .names {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    height: 75px;
+
+    padding: 0 rem(30);
+
+    h1 {
+      color: var(--white);
+      font-size: rem(32);
+      text-transform: capitalize;
+    }
+
+    h2 {
+      position: absolute;
+      font-weight: 100;
+      top: 0;
+      font-size: rem(60);
+      color: rgba(255, 255, 255, 0.1);
+    }
+
+    h1,
+    h2 {
+      //Remove Bug Animation
+      -webkit-animation-fill-mode: none !important;
+      animation-fill-mode: none !important;
+    }
+  }
+
+  .status {
+    position: relative;
+    border-radius: rem(20);
+    background: var(--white);
+
+    img {
+      position: absolute;
+      max-width: rem(180);
+
+      top: rem(-100);
+      left: rem(30);
+      z-index: 10;
+
+      //Remove Bug Animation
+      -webkit-animation-fill-mode: none !important;
+      animation-fill-mode: none !important;
+    }
+
+    .statistics {
+      display: flex;
+      flex-direction: column;
+      min-height: 43.9vh;
+
+      margin-top: rem(10);
+      padding: rem(110) rem(35) rem(30);
+
+      h3 {
+        margin-bottom: rem(20);
+
+        font-weight: 700;
+        font-style: italic;
+        font-size: rem(32);
+
+        text-decoration: underline;
+        color: var(--secundary-color);
+      }
+
+      ol {
+        li {
+          display: flex;
+          justify-content: space-between;
+
+          font-size: rem(18);
+          line-height: 130%;
+        }
+      }
+
+      .btn {
+        display: flex;
+        justify-content: center;
+
+        margin-top: rem(80);
+        padding: rem(20);
+        border-radius: rem(10);
+
+        font-weight: 600;
+        transition: all 140ms ease-in-out;
+
+        color: var(--white);
+        background: var(--secundary-color);
+
+        &:hover {
+          filter: brightness(0.8);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 420px) {
+    margin-top: rem(10);
+
+    .names {
+      h1 {
+        font-size: rem(20);
+      }
+
+      h2 {
+        top: rem(35);
+        font-size: rem(20);
+      }
+    }
+
+    .status {
+      position: relative;
+
+      img {
+        position: absolute;
+        top: rem(-80);
+        left: rem(0);
+        max-width: rem(100);
+      }
+
+      .statistics {
+        min-height: 57vh;
+        padding-top: rem(50);
+      }
+    }
+  }
+}
