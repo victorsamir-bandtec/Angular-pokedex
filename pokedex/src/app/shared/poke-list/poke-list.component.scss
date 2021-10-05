@@ -7,6 +7,22 @@
     width: 105%;
   }
 
+  .notPokemon {
+    @include display-flex;
+
+    opacity: 0.2;
+    h1 {
+      font-weight: bold;
+      font-size: rem(36);
+
+      color: var(--white);
+    }
+
+    img {
+      width: rem(230);
+    }
+  }
+
   .pokemon {
     @include display-flex;
     width: 45%;
@@ -80,9 +96,7 @@
   }
 
   footer {
-    section {
-      @include display-flex(row, center);
-    }
+    @include display-flex(row, center);
   }
 
   button {

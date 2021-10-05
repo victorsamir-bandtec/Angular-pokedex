@@ -1,11 +1,16 @@
 <poke-search (emmitSearch)="getSearch($event)"></poke-search>
 
+<div class="notPokemon" *ngIf="pokemonNotFound">
+  <h1>Pokemon não encontrado</h1>
+  <img src="assets/voltorb.png" alt="pokemon voltorb" />
+</div>
+
 <section>
   <ng-template ngFor let-pokemon [ngForOf]="getAllPokemons">
     <a
       [routerLink]="['details', pokemon.status.id]"
-      class="pokemon"
       *ngIf="pokemon.status"
+      class="pokemon fadeIn"
     >
       <div class="status">
         <h2>{{ pokemon.name }}</h2>
@@ -19,24 +24,30 @@
         <img
           [src]="pokemon.status.sprites.other.dream_world.front_default"
           [alt]="pokemon.name"
+          class="slideInRight"
         />
       </div>
     </a>
   </ng-template>
+
+  <img
+    src="assets/error.svg"
+    alt="Deu erro na mostragem do pokemon"
+    width="100%"
+    *ngIf="apiError"
+  />
 </section>
 
-<footer>
-  <section>
-    <button (click)="previousPage()" *ngIf="previousButton">
-      <img src="assets/icons/previous.png" alt="previous-page" />
-    </button>
+<footer *ngIf="paginationButtons">
+  <button (click)="previousPage()" *ngIf="previousButton">
+    <img src="assets/icons/previous.png" alt="previous-page" />
+  </button>
 
-    <button (click)="previousPage()" disabled *ngIf="!previousButton">
-      <img src="assets/icons/previous.png" alt="previous-page" />
-    </button>
+  <button (click)="previousPage()" disabled *ngIf="!previousButton">
+    <img src="assets/icons/previous.png" alt="previous-page" />
+  </button>
 
-    <button (click)="nextPage()">
-      <img src="assets/icons/next.png" alt="next-page" />
-    </button>
-  </section>
+  <button (click)="nextPage()">
+    <img src="assets/icons/next.png" alt="next-page" />
+  </button>
 </footer>
